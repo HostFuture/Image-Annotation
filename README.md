@@ -94,8 +94,7 @@ As mentioned in the **Created Annotation** section, once the annotation is saved
 
 ## Developer Contact
 
-![Debjit Sadhukhan](https://scontent.fblr4-2.fna.fbcdn.net/v/t1.6435-9/74693264_1718193801648494_1506304928321110016_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=UbIgbsSPbtMAX83A4tB&_nc_ht=scontent.fblr4-2.fna&oh=ae4d93f55260d9725cfe96977dad08eb&oe=61B7AE51)
 #### Debjit Sadhukhan
-+91 83358 39446
-debjit95@engineer.com
-Bangalore, India
+#### +91 83358 39446
+#### debjit95@engineer.com
+#### Bangalore, India
