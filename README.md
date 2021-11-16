@@ -5,6 +5,21 @@ This project was created using ReactJS as Front-end and Flask as Backend
 ## Index
 
 * [Image Annotation](https://github.com/HostFuture/Image-Annotation#image-annotation)
+* [Prerequisits](https://github.com/HostFuture/Image-Annotation#prerequisits)
+* [Installation](https://github.com/HostFuture/Image-Annotation#installation)
+* [Demo Preview](https://github.com/HostFuture/Image-Annotation#demo-preview)
+* [Running the Code](https://github.com/HostFuture/Image-Annotation#running-the-code)
+..* [Start the application](https://github.com/HostFuture/Image-Annotation#start-the-application)
+* [User Guide](https://github.com/HostFuture/Image-Annotation#user-guide)
+..* [Sign In](https://github.com/HostFuture/Image-Annotation#sign-in)
+..* [Sign Up](https://github.com/HostFuture/Image-Annotation#sign-up)
+..* [Forgot Password](https://github.com/HostFuture/Image-Annotation#forgot-password)
+..* [Dashboard](https://github.com/HostFuture/Image-Annotation#dashboard)
+..* [New Project](https://github.com/HostFuture/Image-Annotation#new-project)
+..* [Creating Annotation](https://github.com/HostFuture/Image-Annotation#creating-annotation)
+..* [Saved Annotations](https://github.com/HostFuture/Image-Annotation#saved-annotations)
+* [Developer Contact](https://github.com/HostFuture/Image-Annotation#developer-contact)
+
 
 ## Image Annotation
 
