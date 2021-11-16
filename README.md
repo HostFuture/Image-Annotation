@@ -1,2 +1,9 @@
-# Image Annotation
- Image Annotation is a repository where a full stack solution is implemented as a part of SmartCow Assignment
+# Getting Started with Image Annotation with ReactJS & Flask
+
+This project was created using ReactJS as Front-end and Flask as Backend
+
+## Image Annotation
+
+Image annotation is the process of labeling images of a dataset to train a machine learning model. Therefore, image annotation is used to label the features you need your system to recognize.
+
+## Prerequisits
