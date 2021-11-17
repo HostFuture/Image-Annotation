@@ -9,7 +9,7 @@ from datetime import datetime
 
 
 # Defining path for files
-user_dir = 'D:/Downloads/Training/Smart Cow/annotation/src/user_data'
+user_dir = '../src/user_data'
 if not os.path.isdir(user_dir):
   os.makedirs(user_dir)
 
@@ -183,25 +183,22 @@ def annotationImageUpdate():
     if len(anno) <= 0 or req['image_name'] == '':
       return jsonify({"msg": f"All the fields are mandatory for this request", "status": 406}), 406
     
+    ia_query = ImageAnnotation.query.filter_by(image_name=req['image_name'])
+    if ia_query.count() > 0:
+      ia_query.delete()
+      db.session.commit()
+
     for a in anno:
-      ia_query = ImageAnnotation.query.filter_by(
+      ia = ImageAnnotation(
         image_name=req['image_name'], 
-        left=int(a['mark']['x']), 
+        annotation=json.dumps(a),
+        left=int(a['mark']['x']),
         top=int(a['mark']['y']),
         right=int(a['mark']['x'] + a['mark']['width']),
         bottom=int(a['mark']['y'] + a['mark']['height'])
-      ).count()
-      if ia_query <= 0:
-        ia = ImageAnnotation(
-          image_name=req['image_name'], 
-          annotation=json.dumps(a),
-          left=int(a['mark']['x']),
-          top=int(a['mark']['y']),
-          right=int(a['mark']['x'] + a['mark']['width']),
-          bottom=int(a['mark']['y'] + a['mark']['height'])
-        )
-        db.session.add(ia)
-        db.session.commit()
+      )
+      db.session.add(ia)
+      db.session.commit()
     
     return jsonify({"msg": f"Annotation data is saved successfully", "status": 200}), 200
   return jsonify({"msg": f"Request Method not allowed!", "status": 405}), 405 
