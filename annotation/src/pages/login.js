@@ -41,7 +41,7 @@ class Login extends React.Component {
       if(!emailPattern.test(this.state.email) | this.state.password === '') {
         toast.error("Both of the email and password should be filled properly", {position: "top-left"});
       } else {
-        fetch('/user/login', {
+        fetch('/api/user/login', {
           method: 'post',
           body: JSON.stringify({'email': this.state.email, 'password': this.state.password})
         }).then(r => r.json()
@@ -59,7 +59,7 @@ class Login extends React.Component {
       if(!emailPattern.test(this.state.email) | this.state.password === '' | this.state.first_name === '' | this.state.last_name === '') {
         toast.error("Please fill all the fields before submitting the form", {position: "top-left"});
       } else {
-        fetch('/user/register', {
+        fetch('/api/user/register', {
           method: 'post',
           body: JSON.stringify({'email': this.state.email, 'password': this.state.password, 
                 'first_name': this.state.first_name, 'last_name': this.state.last_name})
@@ -77,7 +77,7 @@ class Login extends React.Component {
       if(!emailPattern.test(this.state.email) | this.state.password === '') {
         toast.error("Both of the email and password should be filled properly", {position: "top-left"});
       } else {
-        fetch('/user/forgot', {
+        fetch('/api/user/forgot', {
           method: 'post',
           body: JSON.stringify({'email': this.state.email, 'password': this.state.password})
         }).then(r => r.json()

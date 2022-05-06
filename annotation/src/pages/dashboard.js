@@ -34,7 +34,7 @@ class Dashboard extends React.Component {
     this.initalFetch();
   }
   initalFetch() {
-    authFetch('/user/me'
+    authFetch('/api/user/me'
     ).then(r => r.json()
     ).then(ret => {
       var files = []
@@ -63,7 +63,7 @@ class Dashboard extends React.Component {
         formData.append("files[]", files[index]);
       }
 
-      authFetch('/project/upload', {
+      authFetch('/api/project/upload', {
         method: 'POST',
         body: formData
       }).then(r => r.json()
@@ -93,7 +93,7 @@ class Dashboard extends React.Component {
     if(this.state.new_project === '') {
       toast.error("Please enter a valid project name", {position: "top-left"});
     } else {
-      authFetch('/project/create/' + this.state.new_project, {
+      authFetch('/api/project/create/' + this.state.new_project, {
         method: 'PUT'
       }).then(r => r.json()
       ).then(ret => {
@@ -109,7 +109,7 @@ class Dashboard extends React.Component {
   }
   importAll(r) { return r.keys().map(r) }
   handleAnnotation(e) {
-    authFetch('/project/image/'+ this.state.file_names[e.target.ariaLabel][1] +'/details'
+    authFetch('/api/project/image/'+ this.state.file_names[e.target.ariaLabel][1] +'/details'
     ).then(r => r.json()
     ).then(ret => {
       if(ret.status === 200) {
@@ -155,7 +155,7 @@ class Dashboard extends React.Component {
   }
   submitAnno() {
     if (this.state.annotationData.length > 0) {
-      authFetch('/project/image/update', {
+      authFetch('/api/project/image/update', {
         method: 'POST',
         body: JSON.stringify( {'image_name':this.state.annotation_image, annotation_data:JSON.stringify(this.state.annotationData)} )
       }).then(r => r.json()
@@ -170,7 +170,7 @@ class Dashboard extends React.Component {
     }
   }
   downloadCSV() {
-    authFetch('/project/image/' + this.state.annotation_image + '/download'
+    authFetch('/api/project/image/' + this.state.annotation_image + '/download'
     ).then(r => r.json()
     ).then(ret => {
       if(ret.status === 200) {

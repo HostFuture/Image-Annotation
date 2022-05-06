@@ -1,0 +1,13 @@
+services:
+  api:
+    build:
+      context: ./annotation/api
+      dockerfile: Dockerfile
+    image: react-flask-app-api
+  client:
+    build:
+      context: ./annotation
+      dockerfile: Dockerfile
+    image: react-flask-app-client
+    ports:
+      - "80:80"

@@ -17,7 +17,7 @@ if not os.path.isdir(user_dir):
 user = Blueprint('user', __name__)
 
 # Defining Routes and Functions
-@user.route('/user/register', methods=['POST'])
+@user.route('/api/user/register', methods=['POST'])
 def userRegister():
   if request.method == 'POST':
     req = request.get_json(force=True)
@@ -40,7 +40,7 @@ def userRegister():
   return jsonify({"msg": f"Request Method not allowed!", "status": 405}), 405
 
 
-@user.route('/user/login', methods=['POST'])
+@user.route('/api/user/login', methods=['POST'])
 def userLogin():
   if request.method == 'POST':
     req = request.get_json(force=True)
@@ -70,7 +70,7 @@ def userLogin():
   return jsonify({"msg": f"Request Method not allowed!", "status": 405}), 405
 
 
-@user.route('/user/forgot', methods=['POST'])
+@user.route('/api/user/forgot', methods=['POST'])
 def forgotPassword():
   if request.method == 'POST':
     req = request.get_json(force=True)
@@ -93,7 +93,7 @@ def forgotPassword():
   return jsonify({"msg": f"Request Method not allowed!", "status": 405}), 405
 
 
-@user.route('/project/create/<project_name>', methods=['PUT'])
+@user.route('/api/project/create/<project_name>', methods=['PUT'])
 @jwt_required()
 def createProject(project_name):
   if request.method == 'PUT':
@@ -118,7 +118,7 @@ def createProject(project_name):
   return jsonify({"msg": f"Request Method not allowed!", "status": 405}), 405
   
 
-@user.route('/user/me', methods=['GET'])
+@user.route('/api/user/me', methods=['GET'])
 @jwt_required()
 def userDetails():
   current_user = get_jwt_identity()
@@ -137,7 +137,7 @@ def userDetails():
   }), 200
 
 
-@user.route('/project/upload', methods=['POST'])
+@user.route('/api/project/upload', methods=['POST'])
 @jwt_required()
 def uploadData():
   if request.method == 'POST':
@@ -173,7 +173,7 @@ def uploadData():
   return jsonify({"msg": f"Request Method not allowed!", "status": 405}), 405
 
 
-@user.route('/project/image/update', methods=['POST'])
+@user.route('/api/project/image/update', methods=['POST'])
 @jwt_required()
 def annotationImageUpdate():
   if request.method == 'POST':
@@ -203,7 +203,7 @@ def annotationImageUpdate():
     return jsonify({"msg": f"Annotation data is saved successfully", "status": 200}), 200
   return jsonify({"msg": f"Request Method not allowed!", "status": 405}), 405 
 
-@user.route('/project/image/<image_name>/details', methods=['GET'])
+@user.route('/api/project/image/<image_name>/details', methods=['GET'])
 @jwt_required()
 def annotationImageData(image_name):
   ia = ImageAnnotation.query.filter_by(image_name=image_name)
@@ -217,7 +217,7 @@ def annotationImageData(image_name):
   
 
 
-@user.route('/project/image/<image_name>/download', methods=['GET', 'POST'])
+@user.route('/api/project/image/<image_name>/download', methods=['GET', 'POST'])
 @jwt_required()
 def downloadAnnotation(image_name):
   ia = ImageAnnotation.query.filter_by(image_name=image_name)
